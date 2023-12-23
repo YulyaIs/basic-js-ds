@@ -12,19 +12,29 @@ const { NotImplementedError } = require('../extensions/index.js');
  * stack.pop(); // undefined
  *
  */
-class Stack {
-  push(/* element */) {
-    throw new NotImplementedError('Not implemented');
+class Stack {     // запомнить
+  constructor () {
+    this.data = [];     // массив
+    this.top = 0;     // индекс верхнего элемента
+  }
+  push(element) {
+    this.data[this.top] = element;    // сохранить в верхей позиции
+    this.top = this.top + 1;    // увеличить индекс
+    return this.top + 1;
+   // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
   pop() {
-    throw new NotImplementedError('Not implemented');
+    this.top = this.top -1;     // удаляем из верхней позиции и уменьшаем индекс
+    return this.data.pop();
+    //throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 
   peek() {
-    throw new NotImplementedError('Not implemented');
+    return this.data[this.top - 1];     // пустая верхняя позиция
+    //throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
   }
 }
