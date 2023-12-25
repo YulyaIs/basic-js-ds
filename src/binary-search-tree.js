@@ -55,24 +55,53 @@ class BinarySearchTree {
 
 
   has(data) {
-    let newNode = new Node(data)
-    this.hasRoot(this.node, newNode);
+    let current = this.node;
+
+    while (current) {
+      if (data === current.data) {
+        return true;
+      }
+      if(data > current.data) {
+        current = current.right;
+      }
+      if(data < current.data) {
+        current = current.left;
+      }
+    }
+    return false;
   }
-    hasRoot(node, newNode) {
+   /* let node = this.node;
+    while(node) {
+      if (data === node.data) return true;
+      if ( data > node.data) node = node.right;
+      if ( data < node.datf) node = node.left;
+    }
+    return false;
+  }*/
+   /* if (this.node === null) {
+      return false;
+    }
+    if (this.node.data === data)
+    return true;
+  }*/
+   // let newNode = new Node(data)
+   /* this.hasRoot(this.node, data);
+  }
+    hasRoot(node, data) {
     if (!node) {
       return false;
     }
-    if (newNode.data === node.data) {
+   if (node.data === data) {
       return true;
     }
-    else if (node.data > newNode.data) {
-      return this.hasRoot(node.left, newNode)
+    else if (node.data > data) {
+      return this.hasRoot(node.left, data)
     }
     else {
-      return this.hasRoot(node.right, newNode);
+      return this.hasRoot(node.right, data);
     }
-  }
-     //  this.node = newNode;
+  }*/
+    //  this.node = newNode;
   //  } else {
      // this.hasRoot(this.node, newNode)
    // }
